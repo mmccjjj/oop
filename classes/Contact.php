@@ -24,11 +24,6 @@ class Contact
         $this->value = $contactArrayInput['value'];
     }
 
-    function getFullname()
-    {
-        $fullname = $this->firstname . " " . $this->lastname;
-        return $fullname;
-    }
 
     function notifyByEmail($subject, $message)
     {
@@ -50,7 +45,7 @@ class Contact
         if ($dateTimeOb < new DateTime()) {
             $this->birthdate = $dateTimeOb;
         } else {
-            $this->birthdate = "";
+            $this->birthdate = null;
         }
     }
 
@@ -58,5 +53,38 @@ class Contact
     {
 
         return  $this->birthdate->format('d.m.Y');
+    }
+
+    function calcAge()
+    {
+        $today = new DateTime();
+        $date = $this->birthdate;
+
+        return $today->diff($date)->y;
+    }
+
+    function getFullname()
+    {
+        $fullname = $this->firstname . " " . $this->lastname;
+        return $fullname;
+    }
+
+    function getRelState()
+    {
+        return $this->related;
+    }
+
+    function getEmail()
+    {
+        return $this->email;
+    }
+
+    function getFullnameAndEmail()
+    {
+
+        return [
+            "name" => $this->getFullname(),
+            "email" => $this->email,
+        ];
     }
 }

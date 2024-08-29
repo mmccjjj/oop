@@ -1,6 +1,8 @@
 <?php
 
-include __DIR__ . '/classes/Contact.php';
+include __DIR__ . '/classes/FamilyMember.php';
+include __DIR__ . '/classes/Students.php';
+include __DIR__ . '/classes/String.php';
 
 
 $contactArray = [
@@ -12,6 +14,11 @@ $contactArray = [
         "birthdate" => "01.01.1990",
         "related" => true,
         "value" => 8,
+<<<<<<< HEAD
+=======
+        "role" => "Vater",
+        "isEmergencyContact" => false,
+>>>>>>> temp
     ],
     "person2" => [
         "firstname" => "Ben",
@@ -20,6 +27,12 @@ $contactArray = [
         "birthdate" => "06.06.1988",
         "related" => false,
         "value" => 4,
+<<<<<<< HEAD
+=======
+        "role" => "Sohn",
+        "isEmergencyContact" => false,
+
+>>>>>>> temp
     ],
     "person3" => [
         "firstname" => "Hans",
@@ -28,6 +41,8 @@ $contactArray = [
         "birthdate" => "12.12.1988",
         "related" => false,
         "value" => 6,
+        "role" => "Bruder",
+        "isEmergencyContact" => true,
     ],
 
 ];
@@ -47,6 +62,15 @@ if ($contactPerson2== $contactPerson1){
 
 //var_dump($contactPerson2->notifyByEmail("Test", "Test Nachricht"));
 
-$contactPerson3 = new Contact($contactArray["person3"]);
+/* $contactPerson3 = new FamilyMember($contactArray["person3"]);
 
-var_dump($contactPerson3->getBirthdateInSwissFormat());
+
+
+$student = new Student();
+$student->math = 4.5;
+$student->biology = 5;
+
+var_dump($student->math); */
+
+$string = new Strg("Opportunity rocks!");
+var_dump($string->up("Wurde gross"));
